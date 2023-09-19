@@ -29,8 +29,8 @@ const Home = () => {
         <Link to='/books/create'>
           <MdOutlineAddBox className='text-sky-800 text-4xl' />
         </Link>
-
       </div>
+
       {loading ? (
         <Spinner />
       ) : (
@@ -42,12 +42,11 @@ const Home = () => {
               <th className='border border-slate-600 rounded-md max-md:hidden'>Author</th>
               <th className='border border-slate-600 rounded-md max-md:hidden'>Publish Year</th>
               <th className='border border-slate-600 rounded-md'>Operations</th>
-
             </tr>
           </thead>
           <tbody>
             {books.map((book, index) => (
-              <tr key={book._id} className='=' h-8>
+              <tr key={book._id} className='h-8'>
                 <td className='border border-slate-700 rounded-md text-center'>
                   {index + 1}
                 </td>
@@ -68,8 +67,9 @@ const Home = () => {
                     <Link to={`/books/edit/${book._id}`}>
                       <AiOutlineEdit className='text-2x1 text-yellow-600' />
                     </Link>
-                    <Link to={`/books/delete/${book._id}`}></Link>
-                    <MdOutlineDelete className='text-2x1 text-red-600' />
+                    <Link to={`/books/delete/${book._id}`}>
+                      <MdOutlineDelete className='text-2x1 text-red-600' />
+                    </Link>
                   </div>
                 </td>
               </tr>
@@ -78,7 +78,7 @@ const Home = () => {
         </table>
       )}
     </div>
-  )
-}
+  );
+};
 
 export default Home
